@@ -22,5 +22,26 @@ public class GestioneEventiDAO
         transaction.commit();
         System.out.println("fatto");
     }
+    public GestioneEventi findby(Long id)
+    {
+        return em.find(GestioneEventi.class,id);
+    }
+
+    public void deleteevent(long id)
+    {
+        GestioneEventi found=this.findby(id);
+        if(found !=null)
+        {
+            EntityTransaction transaction= em.getTransaction();
+            transaction.begin();
+            em.remove(found);
+            transaction.commit();
+            System.out.println("evento cancellato");
+        }
+        else
+        {
+            System.out.println("id evento non trovato");
+        }
+    }
 
 }
