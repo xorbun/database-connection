@@ -22,8 +22,10 @@ public class Application
         System.out.println("cosa vuoi fare?1)carica dati nel db,2)cerca id evento nel db,3)cancella evento nel db");
         int menu;
         menu= input.nextInt();
-        switch (menu) {
-            case 1: {
+        switch (menu)
+        {
+            case 1:
+            {
                 Scanner input2=new Scanner(System.in);
                 System.out.println("titolo");
                 String titolo;
@@ -41,7 +43,8 @@ public class Application
                 sd.save(evento1);
                 break;
             }
-            case 2: {
+            case 2:
+            {
                 System.out.println("inserisci l id da cercare");
                 long idevento;
                 idevento= input.nextInt();
@@ -52,18 +55,18 @@ public class Application
                 } else {
                     System.out.println("l'id" + idevento + "non è stato trovato");
                 }
+                break;
             }
             case 3:
             {
-
                 System.out.println("cerca l evento da cancellare");
                 long idevento2;
                 idevento2=input.nextInt();
                 sd.deleteevent(idevento2);
+                break;
             }
-
         }
-       input.close();
+        input.close();
         em.close();
         emf.close();
     }
