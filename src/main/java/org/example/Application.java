@@ -2,7 +2,6 @@ package org.example;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 import DAO.LocationDAO;
 import DAO.PartecipazioneDAO;
 import DAO.PersonaDAO;
@@ -43,27 +42,28 @@ public class Application
                 System.out.println("numero persone");
                 int numberofpeople;
                 numberofpeople= input2.nextInt();
-                GestioneEventi evento1 = new GestioneEventi(titolo, data, desc, Tipoevento.PRIVATO, numberofpeople);
+                Scanner input3=new Scanner(System.in);
                 System.out.println("nome persona");
                 String nomep;
-                nomep=input2.nextLine();
+                nomep=input3.nextLine();
                 System.out.println("cognome persona");
                 String cognome;
-                cognome=input2.nextLine();
+                cognome=input3.nextLine();
                 System.out.println("email");
                 String mail;
-                mail=input2.nextLine();
+                mail=input3.nextLine();
                 System.out.println("data nascita");
                 String datan;
-                datan=input2.nextLine();
-                Persona persona1=new Persona(nomep,cognome,mail,datan, Sesso.MASCHIO);
+                datan=input3.nextLine();
                 System.out.println("nome location");
                 String locationn;
-                locationn=input2.nextLine();
+                locationn=input3.nextLine();
                 System.out.println("città");
                 String citta;
-                citta=input2.nextLine();
+                citta=input3.nextLine();
                 Location location1=new Location(locationn,citta);
+                GestioneEventi evento1 = new GestioneEventi(titolo, data, desc, Tipoevento.PRIVATO, numberofpeople);
+                Persona persona1=new Persona(nomep,cognome,mail,datan,Sesso.MASCHIO);
                 Partecipazione partecipazione1=new Partecipazione(persona1,location1);
                 sd.save(evento1);
                 pd.save(persona1);
@@ -80,9 +80,8 @@ public class Application
                 if (eventofromdb != null)
                 {
                     System.out.println(eventofromdb);
-                    Partecipazione partecipazionefromdb=pad.findby(1);
-                    System.out.println(partecipazionefromdb);
-                } else
+                }
+                else
                 {
                     System.out.println("l'id" + idevento + "non è stato trovato");
                 }

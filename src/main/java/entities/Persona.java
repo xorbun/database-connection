@@ -19,9 +19,11 @@ public class Persona
     @Column(name="data_nascita")
     private String datanascita;
     @Column(name="sesso")
+    @Enumerated(EnumType.STRING)
     private Sesso sesso;
 
-
+    @OneToMany(mappedBy = "persona")
+    private List<Partecipazione>Partecipazionelist;
 
 
 
@@ -86,6 +88,10 @@ public class Persona
     public void setSesso(Sesso sesso)
     {
         this.sesso = sesso;
+    }
+
+    public List<Partecipazione> getPartecipazionelist() {
+        return Partecipazionelist;
     }
 
     @Override
