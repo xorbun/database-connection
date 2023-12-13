@@ -44,14 +44,31 @@ public class Application
                 int numberofpeople;
                 numberofpeople= input2.nextInt();
                 GestioneEventi evento1 = new GestioneEventi(titolo, data, desc, Tipoevento.PRIVATO, numberofpeople);
-                Persona persona1=new Persona("Luca","Mastrangelo","Luca.m@boh.com","04-02-1973", Sesso.MASCHIO);
-                Location location1=new Location("Apple park","Cupertino");
+                System.out.println("nome persona");
+                String nomep;
+                nomep=input2.nextLine();
+                System.out.println("cognome persona");
+                String cognome;
+                cognome=input2.nextLine();
+                System.out.println("email");
+                String mail;
+                mail=input2.nextLine();
+                System.out.println("data nascita");
+                String datan;
+                datan=input2.nextLine();
+                Persona persona1=new Persona(nomep,cognome,mail,datan, Sesso.MASCHIO);
+                System.out.println("nome location");
+                String locationn;
+                locationn=input2.nextLine();
+                System.out.println("città");
+                String citta;
+                citta=input2.nextLine();
+                Location location1=new Location(locationn,citta);
                 Partecipazione partecipazione1=new Partecipazione(persona1,location1);
                 sd.save(evento1);
                 pd.save(persona1);
                 ld.save(location1);
                 pad.save(partecipazione1);
-
                 break;
             }
             case 2:
