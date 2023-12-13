@@ -1,12 +1,10 @@
 package org.example;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import entities.GestioneEventi;
 import DAO.GestioneEventiDAO;
 import entities.Tipoevento;
-
 import java.util.Scanner;
 
 public class Application
@@ -15,7 +13,6 @@ public class Application
 
     public static void main(String[] args)
     {
-        //***************************CARICAMENTO DATI NEL DB***************************
         Scanner input=new Scanner(System.in);
         EntityManager em=emf.createEntityManager();
         GestioneEventiDAO sd= new GestioneEventiDAO(em);
@@ -52,7 +49,8 @@ public class Application
                 if (eventofromdb != null)
                 {
                     System.out.println(eventofromdb);
-                } else {
+                } else
+                {
                     System.out.println("l'id" + idevento + "non è stato trovato");
                 }
                 break;
