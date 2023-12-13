@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="persone")
@@ -23,11 +24,13 @@ public class Persona
 
 
 
+
     public Persona()
     {
     }
 
-    public Persona(String nome, String cognome, String email, String datanascita, Sesso sesso) {
+    public Persona(String nome, String cognome, String email, String datanascita, Sesso sesso)
+    {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;

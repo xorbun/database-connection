@@ -15,6 +15,7 @@ public class Location
     @Column(name="nome_città")
     private String città;
 
+
     public Location(){}
 
     public Location(String nome, String città)

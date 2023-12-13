@@ -2,9 +2,12 @@ package org.example;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import entities.GestioneEventi;
+
+import DAO.LocationDAO;
+import DAO.PersonaDAO;
+import entities.*;
 import DAO.GestioneEventiDAO;
-import entities.Tipoevento;
+
 import java.util.Scanner;
 
 public class Application
@@ -16,6 +19,8 @@ public class Application
         Scanner input=new Scanner(System.in);
         EntityManager em=emf.createEntityManager();
         GestioneEventiDAO sd= new GestioneEventiDAO(em);
+        PersonaDAO pd=new PersonaDAO(em);
+        LocationDAO ld=new LocationDAO(em);
         System.out.println("cosa vuoi fare?1)carica dati nel db,2)cerca id evento nel db,3)cancella evento nel db");
         int menu;
         menu= input.nextInt();
@@ -37,7 +42,11 @@ public class Application
                 int numberofpeople;
                 numberofpeople= input2.nextInt();
                 GestioneEventi evento1 = new GestioneEventi(titolo, data, desc, Tipoevento.PRIVATO, numberofpeople);
+                Persona persona1=new Persona("Luca","Mastrangelo","Luca.m@boh.com","04-02-1973", Sesso.MASCHIO);
+                Location location1=new Location("Apple park","Cupertino");
                 sd.save(evento1);
+                pd.save(persona1);
+                ld.save(location1);
                 break;
             }
             case 2:
