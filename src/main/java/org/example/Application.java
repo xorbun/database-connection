@@ -80,6 +80,8 @@ public class Application
                 if (eventofromdb != null)
                 {
                     System.out.println(eventofromdb);
+                    Partecipazione ok=pad.findby(35);
+                    System.out.println(ok);
                 }
                 else
                 {
