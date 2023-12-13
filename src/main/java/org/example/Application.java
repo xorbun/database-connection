@@ -4,6 +4,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import DAO.LocationDAO;
+import DAO.PartecipazioneDAO;
 import DAO.PersonaDAO;
 import entities.*;
 import DAO.GestioneEventiDAO;
@@ -21,6 +22,7 @@ public class Application
         GestioneEventiDAO sd= new GestioneEventiDAO(em);
         PersonaDAO pd=new PersonaDAO(em);
         LocationDAO ld=new LocationDAO(em);
+        PartecipazioneDAO pad=new PartecipazioneDAO(em);
         System.out.println("cosa vuoi fare?1)carica dati nel db,2)cerca id evento nel db,3)cancella evento nel db");
         int menu;
         menu= input.nextInt();
@@ -44,9 +46,12 @@ public class Application
                 GestioneEventi evento1 = new GestioneEventi(titolo, data, desc, Tipoevento.PRIVATO, numberofpeople);
                 Persona persona1=new Persona("Luca","Mastrangelo","Luca.m@boh.com","04-02-1973", Sesso.MASCHIO);
                 Location location1=new Location("Apple park","Cupertino");
+                Partecipazione partecipazione1=new Partecipazione(persona1,location1);
                 sd.save(evento1);
                 pd.save(persona1);
                 ld.save(location1);
+                pad.save(partecipazione1);
+
                 break;
             }
             case 2:
@@ -58,6 +63,8 @@ public class Application
                 if (eventofromdb != null)
                 {
                     System.out.println(eventofromdb);
+                    Partecipazione partecipazionefromdb=pad.findby(1);
+                    System.out.println(partecipazionefromdb);
                 } else
                 {
                     System.out.println("l'id" + idevento + "non è stato trovato");

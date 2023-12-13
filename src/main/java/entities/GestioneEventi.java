@@ -22,6 +22,7 @@ public class GestioneEventi
     @Column(name="numero_persone")
     private int numeropersone;
 
+
     public GestioneEventi()
     {
 

@@ -23,4 +23,28 @@ public class Partecipazione
         this.persona = persona;
         this.location = location;
     }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "Partecipazione{" +
+                "persona=" + persona +
+                ", location=" + location +
+                '}';
+    }
 }

@@ -15,6 +15,9 @@ public class Location
     @Column(name="nome_città")
     private String città;
 
+    @ManyToOne
+    @JoinColumn(name="Gestioneeventi_id")
+    GestioneEventi gestioneEventi;
 
     public Location(){}
 
